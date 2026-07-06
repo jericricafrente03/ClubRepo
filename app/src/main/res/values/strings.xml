@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">ClubServe</string>
+
+    <!-- Splash Screen -->
+    <string name="clubserve_uppercase">CLUBSERVE</string>
+    <string name="clubserve_logo_desc">ClubServe Logo</string>
+
+    <!-- Login Screen -->
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="email_address">Email address</string>
+    <string name="enter_email_address">Enter email address</string>
+    <string name="password">Password</string>
+    <string name="enter_password">Enter password</string>
+    <string name="log_in">Log in</string>
+    <string name="forgot_password">Forgot password?</string>
+
+    <!-- Home Screen -->
+    <string name="notifications">Notifications</string>
+    <string name="location_sample">123 ABC Road, Makati City</string>
+    <string name="search_hint">Search for a club, activity...</string>
+
+    <string name="upcoming_bookings">Upcoming Bookings</string>
+    <string name="explore_clubs">Explore our clubs</string>
+    <string name="courts">Courts</string>
+    <string name="classes">Classes</string>
+    <string name="wellness">Wellness</string>
+    <string name="fitness">Fitness</string>
+
+    <string name="loved_by_locals">Loved by locals</string>
+    <string name="special_offers">Special Offers</string>
+    <string name="top_clubs">Top Clubs</string>
+    <string name="play_near_you">Play near you</string>
+    <string name="people_to_follow">People to follow</string>
+
+    <string name="padel_court">Padel court</string>
+    <string name="prosmash_alabang">Prosmash Alabang</string>
+    <string name="price_650">₱650/hr</string>
+    <string name="starts_at">Starts at</string>
+
+    <string name="padel_court_title">PadelCourt</string>
+    <string name="prosmash_title">Prosmash</string>
+
+    <string name="cameron_full">Cameron Willia...</string>
+    <string name="level_1_5">Level 1.5</string>
+    <string name="kristin_full">Kristin Watson</string>
+    <string name="follow">Follow</string>
+
+    <string name="view_all">View all</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="activity">Activity</string>
+    <string name="book">Book</string>
+    <string name="logo_desc">Logo</string>
+</resources>
