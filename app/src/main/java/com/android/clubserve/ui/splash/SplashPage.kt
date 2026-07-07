@@ -48,15 +48,8 @@ fun SplashPage(onNext: () -> Unit) {
             Image(
                 painter = painterResource(id = R.drawable.logo),
                 contentDescription = stringResource(R.string.clubserve_logo_desc),
-                modifier = Modifier.size(40.dp)
-            )
-            Spacer(modifier = Modifier.width(12.dp))
-            Text(
-                text = stringResource(R.string.clubserve_uppercase),
-                color = Color.White,
-                fontSize = 28.sp,
-                fontWeight = FontWeight.Bold,
-                letterSpacing = 2.sp
+                modifier = Modifier.width(240.dp)
+                    .height(38.dp)
             )
         }
     }
