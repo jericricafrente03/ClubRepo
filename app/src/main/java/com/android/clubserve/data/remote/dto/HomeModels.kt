@@ -1,6 +1,7 @@
 package com.android.clubserve.data.remote.dto
 
 import kotlinx.serialization.Serializable
+import com.android.clubserve.data.remote.utils.ImageUtils
 
 @Serializable
 data class MainCategoryDto(
@@ -10,7 +11,9 @@ data class MainCategoryDto(
     val image: String? = null,
     val subCategories: List<SubCategoryDto>? = null,
     val businessInfo: BusinessInfoDto? = null
-)
+) {
+    val fullImageUrl: String? get() = ImageUtils.getFullImageUrl(image)
+}
 
 @Serializable
 data class SubCategoryDto(
@@ -23,8 +26,12 @@ data class SubCategoryDto(
     val businessInfoUrl: String? = null,
     val mainCategoryName: String? = null,
     val bookingCount: Int? = null,
-    val likeCount: Int? = null
-)
+    val likeCount: Int? = null,
+    val status: String? = null,
+    val hasExtras: Boolean = false
+) {
+    val fullImageUrl: String? get() = ImageUtils.getFullImageUrl(image)
+}
 
 @Serializable
 data class BusinessInfoDto(
@@ -33,16 +40,24 @@ data class BusinessInfoDto(
     val url: String,
     val city: String? = null,
     val address: String? = null,
+    val logo: String? = null,
+    val banner: String? = null,
     val group: GroupDto? = null
-)
+) {
+    val fullLogoUrl: String? get() = ImageUtils.getFullImageUrl(logo)
+    val fullBannerUrl: String? get() = ImageUtils.getFullImageUrl(banner)
+}
 
 @Serializable
 data class GroupDto(
     val id: String,
     val name: String,
     val image: String? = null,
-    val description: String? = null
-)
+    val description: String? = null,
+    val status: String? = null
+) {
+    val fullImageUrl: String? get() = ImageUtils.getFullImageUrl(image)
+}
 
 @Serializable
 data class LovedByLocalsResponse(

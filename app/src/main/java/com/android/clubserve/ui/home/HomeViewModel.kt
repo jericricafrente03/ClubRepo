@@ -1,5 +1,6 @@
 package com.android.clubserve.ui.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.clubserve.data.remote.api.ClubServeApi
@@ -11,25 +12,31 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
-    private val api = ClubServeApi()
+    private val api = ClubServeApi.create()
     private val repository = HomeRepository(api)
 
-    private val _uiState = MutableStateFlow(HomeDomainState())
+    private val _uiState = MutableStateFlow(HomeDomainState(isLoading = true))
     val uiState: StateFlow<HomeDomainState> = _uiState.asStateFlow()
-
-    private val _isLoading = MutableStateFlow(false)
-    val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
     init {
         fetchHomeData()
     }
 
+    fun updateLocation(location: String) {
+        _uiState.value = _uiState.value.copy(location = location)
+    }
+
     fun fetchHomeData() {
         viewModelScope.launch {
-            _isLoading.value = true
-            val result = repository.getHomeData()
-            _uiState.value = result
-            _isLoading.value = false
+            repository.getHomeData().collect { state ->
+                state.subCategories
+                    .filter { it.status == "ACTIVE" }
+                    .distinctBy { it.mainCategoryName }
+                    .forEach { data ->
+                        Log.v("meme", "lovedByLocals ${data.mainCategoryName}")
+                    }
+                _uiState.value = state
+            }
         }
     }
 }
